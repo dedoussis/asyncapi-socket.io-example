@@ -1,7 +1,7 @@
 
 # Socket.IO Chat API documented with AsyncAPI
 
-The simple chat demo of Socket.IO documented using [AsyncAPI](https://www.asyncapi.com/).
+The simple chat demo of Socket.IO documented using [AsyncAPI](https://www.asyncapi.com/).  
 Application has been forked from: <https://github.com/socketio/socket.io/tree/master/examples/chat>
 
 ## How to use
