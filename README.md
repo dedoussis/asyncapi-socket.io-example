@@ -1,11 +1,12 @@
 
-# Socket.IO Chat
+# Socket.IO Chat API documented with AsyncAPI
 
-A simple chat demo for Socket.IO
+The simple chat demo of Socket.IO documented using [AsyncAPI](https://www.asyncapi.com/).
+Application has been forked from: <https://github.com/socketio/socket.io/tree/master/examples/chat>
 
 ## How to use
 
-```
+```bash
 $ npm ci
 $ npm start
 ```
