@@ -16,28 +16,27 @@ channels:
     publish:
       message:
         oneOf:
-          - $ref: '#/components/messages/NewMessage'
-          - $ref: '#/components/messages/Typing'
-          - $ref: '#/components/messages/StopTyping'
-          - $ref: '#/components/messages/AddUser'
+          - $ref: "#/components/messages/NewMessage"
+          - $ref: "#/components/messages/Typing"
+          - $ref: "#/components/messages/StopTyping"
+          - $ref: "#/components/messages/AddUser"
     subscribe:
       message:
         oneOf:
-          - $ref: '#/components/messages/NewMessageReceived'
-          - $ref: '#/components/messages/UserTyping'
-          - $ref: '#/components/messages/UserStopTyping'
-          - $ref: '#/components/messages/UserJoined'
-          - $ref: '#/components/messages/UserLeft'
-          - $ref: '#/components/messages/LogIn'
+          - $ref: "#/components/messages/NewMessageReceived"
+          - $ref: "#/components/messages/UserTyping"
+          - $ref: "#/components/messages/UserStopTyping"
+          - $ref: "#/components/messages/UserJoined"
+          - $ref: "#/components/messages/UserLeft"
+          - $ref: "#/components/messages/LogIn"
   /admin:
     subscribe:
-      message:  # No need to use `oneOf` since there is only a single event
-        $ref: '#/components/messages/ServerMetric'
+      message: # No need to use `oneOf` since there is only a single event
+        $ref: "#/components/messages/ServerMetric"
     bindings:
-      $ref: AuthenticatedWsBindings
+      $ref: "#/components/channelBindings/AuthenticatedWsBindings"
 
 components:
-
   messages:
     NewMessage:
       name: new message
@@ -45,22 +44,18 @@ components:
         type: string
     Typing:
       name: typing
-      payload:
-        type: null
     StopTyping:
       name: stop typing
-      payload:
-        type: null
     AddUser:
       name: add user
       payload:
         type: string
-      x-ack:  # Documents that this event is always acknowledged by the receiver
+      x-ack: # Documents that this event is always acknowledged by the receiver
         args:
           type: object
           properties:
             error:
-              type: [string, 'null']
+              type: [string, "null"]
     NewMessageReceived:
       name: new message
       payload:
@@ -103,16 +98,16 @@ components:
           numUsers:
             type: integer
     LogIn:
-      name: log in
+      name: login
       payload:
-        type: object 
+        type: object
         properties:
           numUsers:
             type: integer
     ServerMetric:
       name: server metric
       payload:
-        type: object 
+        type: object
         properties:
           name:
             type: string
@@ -121,7 +116,7 @@ components:
 
   channelBindings:
     AuthenticatedWsBindings:
-      ws:  
+      ws:
         query:
           type: object
           properties:
