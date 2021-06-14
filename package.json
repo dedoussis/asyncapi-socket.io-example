@@ -11,6 +11,10 @@
     "socket.io": "^4.0.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "pretty": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^2.3.1"
   }
 }

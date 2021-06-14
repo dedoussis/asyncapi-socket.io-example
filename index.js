@@ -84,5 +84,8 @@ io.of("/admin").on("connection", (socket) => {
   let token = socket.handshake.query.token;
   if (token !== "admin") socket.disconnect();
 
-  socket.emit("server metric", { name: "CPU_USAGE", value: 0.23 });
+  socket.emit("server metric", {
+    name: "CPU_COUNT",
+    value: require("os").cpus().length,
+  });
 });
